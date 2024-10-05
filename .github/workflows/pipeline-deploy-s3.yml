@@ -31,6 +31,6 @@ jobs:
           name: site
           path: ./  # Baixa o artefato no diretório atual
       - run: ls -la  # Verifique se o arquivo foi baixado corretamente
-      - run: aws s3 cp index.html s3://$BUCKET_S3 --acl public-read  # Faz o upload para o S3
+      - run: aws s3 cp index.html s3://$BUCKET_S3 --acl public-read --region us-east-1
 
 
