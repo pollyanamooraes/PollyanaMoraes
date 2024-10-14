@@ -32,5 +32,9 @@ jobs:
           path: ./  # Baixa o artefato no diretório atual
       - run: ls -la  # Verifique se o arquivo foi baixado corretamente
       - run: aws s3 cp index.html s3://$BUCKET_S3 --acl public-read --region us-east-1
-
+on:
+  # push:
+  #  branches: [main]
+  workflow_dispatch
+  
 
