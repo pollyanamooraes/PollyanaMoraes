@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: create an artifact for reuse
-        run: echo “Full featured artifact” > build-result.txt
+        run: echo "Full featured artifact" > build-result.txt
       - uses: actions/upload-artifact@v4
         with:
           name: build-result
@@ -24,3 +24,4 @@ deploy:
         path: build-result.txt
     - name: use of artifact created
       run: ls build-result.txt
+
