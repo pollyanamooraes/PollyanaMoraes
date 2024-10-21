@@ -14,14 +14,13 @@ jobs:
           name: build-result
           path: build-result.txt
 
-deploy:
-  runs-on: ubuntu-latest
-  needs: build
-  steps:
-    - uses: actions/download-artifact@v4
-      with:
-        name: build-result
-        path: build-result.txt
-    - name: use of artifact created
-      run: ls build-result.txt
-
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: build-result
+          path: build-result.txt
+      - name: use of artifact created
+        run: ls build-result.txt
