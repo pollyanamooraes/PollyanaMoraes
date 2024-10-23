@@ -12,17 +12,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: List project files  # Para depuração, listar os arquivos
+      - name: List project files
         run: ls -la
 
-      # Step to deploy to AWS S3
       - name: Deploy to S3
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: |
-          aws s3 sync . s3://conchayoro-pm --region us-east-1  # Sincroniza a pasta raiz
-
+          aws s3 sync . s3://conchayoro-pm --region us-east-1
+          
     environment:
       name: deployment
       url: https://conchayoro-pm.s3.amazonaws.com
